@@ -1,0 +1,23 @@
+<nav>
+  <!-- prettier-ignore -->
+  {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %} class="current_page" {% endif %}>
+      <h2>{{ item.name }}</h2>
+    </a>
+  {% endfor %}
+  <div class="social">
+    {% assign socials = site.about.socials %}
+    {% for items in socials %}
+      {% for item in items %}
+        <a target="_blank" href="{{items[item]}}">
+          <i class="fa-brands fa-{{item}} text-muted" aria-hidden="true"></i>
+        </a>
+      {% endfor %}
+    {% endfor %}
+    <a href="mailto: {{site.about.email}}">
+      <i class="fa fa-envelope text-muted" aria-hidden="true"></i>
+    </a>
+  </div>
+</nav>
+
+

@@ -1,0 +1,15 @@
+<div class="short-posts">
+  <h2 class="title no-decoration">Short</h2>
+  <div class="line"></div>
+  {% assign selection = site.posts | where_exp:"post", "post.short == true" %}
+  {% for post in selection limit: 3%}
+  <li class="posts-list-item short-post">
+    <span>
+      <a href="{{site.baseurl}}{{ post.url }}" class="short-post-link">
+        <h3><span class="arrow">&#10095;&nbsp;</span> {{ post.title }}</h3>
+      </a>
+      {% include post-date-categories.html %}
+    </span>
+  </li>
+  {% endfor %}
+</div>

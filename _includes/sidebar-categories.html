@@ -1,0 +1,48 @@
+<h2 class="title no-decoration">Categories</h2>
+<div class="line"></div>
+<div>
+  <!-- prettier-ignore -->
+  {% for category in site.categories %}
+    {% assign nr_of_posts = 0 %}
+    {% assign cat = category | first %}
+    {% assign posts = site.categories[cat] %}
+    {% assign selection = posts | where_exp:"post", "post.list_post == true" %}
+    {% for post in selection %}
+      {% assign nr_of_posts = nr_of_posts | plus:1 %}
+    {% endfor %}
+
+  <li class="posts-list-item short-post category-list-item">
+    <span class="categories">
+      <h4>
+        <a class="category" href="/category/{{ cat }}">
+          {{ cat }} ({{ nr_of_posts }})
+        </a>
+      </h4>
+    </span>
+  </li>
+  {% endfor %}
+</div>
+<h2 class="title no-decoration" style="margin-top: 20px">Tags</h2>
+<div class="line"></div>
+<div>
+  <!-- prettier-ignore -->
+  {% for tag_post in site.tags %}
+    {% assign nr_of_posts = 0 %}
+    {% assign tag = tag_post | first %}
+    {% assign tag_posts = site.tags[tag] %}
+    {% assign tag_posts_selection = tag_posts | where_exp:"post", "post.list_post == true" %}
+    {% for post in tag_posts_selection  %}
+      {% assign nr_of_posts = nr_of_posts | plus:1 %}
+    {% endfor %}
+
+  <li class="posts-list-item short-post category-list-item">
+    <span class="categories">
+      <h4>
+        <a class="category" href="/tag/{{ tag }}">
+          {{ tag }} ({{ nr_of_posts }})
+        </a>
+      </h4>
+    </span>
+  </li>
+  {% endfor %}
+</div>

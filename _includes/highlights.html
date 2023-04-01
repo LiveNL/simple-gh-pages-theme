@@ -1,0 +1,19 @@
+<table>
+  {% assign selection = site.posts | where_exp:"post", "post.highlight == true"
+  %} {% for post in selection %}
+  <tr>
+    <td>
+      <h4><span class="date">{{ post.date | date: "%b '%y"}}</span></h4>
+    </td>
+    <td>
+      {% if post.list_post == true %}
+      <a href="{{ post.url }}" style="text-decoration: none !important">
+        <h4>&nbsp;{{ post.title }}</h4>
+      </a>
+      {% else %}
+      <h4>&nbsp;{{ post.title }}</h4>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>

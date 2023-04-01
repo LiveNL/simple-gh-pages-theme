@@ -1,0 +1,24 @@
+<div class="post">
+  <a href="{{ post.url }}">
+    <span class="link homepage-post"></span>
+    <li class="posts-list-item">
+      {% if post.image contains 'https://' %}
+      <div
+        class="posts-image-item"
+        style="background-image: url({{ post.image }});"
+      ></div>
+      {% else %}
+      <div
+        class="posts-image-item"
+        style="background-image: url({{site.baseurl}}/{{ post.image }});"
+      ></div>
+      {% endif %}
+
+      <div class="posts-list-text">
+        <h3>{{ post.title }}</h3>
+        <h4>{{ post.excerpt | strip_html | truncate: 85, "..."}}</h4>
+        {% include post-date-categories.html %}
+      </div>
+    </li>
+  </a>
+</div>

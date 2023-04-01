@@ -1,0 +1,18 @@
+<h4>
+  <span class="date">{{ post.date | date: "%d %b %Y"}}, </span>
+  <span class="categories">
+    in {% for category in post.categories %}
+    <a
+      class="category"
+      href="{{site.baseurl}}/category/{{ category | downcase }}"
+    >
+      <!-- prettier-ignore -->
+      {% if post.categories.size > 1 %}
+        {{ category | downcase }},
+      {% else %}
+        {{ category | downcase }}
+      {% endif %}
+    </a>
+    {% endfor %}
+  </span>
+</h4>

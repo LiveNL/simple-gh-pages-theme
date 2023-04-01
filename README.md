@@ -11,7 +11,7 @@
 simple-gh-pages-theme, after install and first post setup                            
 </td>
 <td>
-in-use
+in-use: https://jordiwippert.nl
 </td>
 </tr>
 </table>

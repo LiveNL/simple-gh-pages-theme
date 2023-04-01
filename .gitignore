@@ -8,3 +8,4 @@ Gemfile.lock
 .obsidian
 .obsidian/workspace.json
 .DS_Store
+.gem

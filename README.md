@@ -23,8 +23,90 @@ Or install it yourself as:
 
     $ gem install simple-gh-pages-theme
 
+### !!! Important. To make the layouts work properly.
+If you created a new website (`jekyll new sitename`), you can make your pages use the layout by changing:
+
+- **index.markdown**: to `layout: index`
+- **posts.markdown**: to `layout: posts` (file might not exist yet)
+- **404.markdown**: to `layout: 404` (file might not exist yet)
+
+Like:
+```
+---
+layout: index
+---
+```
+
+## Configuration:
+
+Example config:
+```
+theme: simple-gh-pages-theme
+title: My website
+description: The website description
+domain: "username.github.io"
+baseurl: "https://example.com"
+url: "https://example.com"
+gtag: "G-XXXXXXXXX" (your google tag) 
+
+about:
+  name: Firstname Lastname
+  site: "https://example.com"
+  avatar: assets/images/image.png
+  email: example@example.com
+  socials:
+    twitter: https://twitter.com/example
+    linkedin: https://www.linkedin.com/in/example/
+    github: https://github.com/example
+    keybase: https://keybase.io/example
+    medium: https://medium.com/@example
+    stack-overflow: https://stackoverflow.com/users/xxxxxx/example
+
+plugins:
+  - jekyll-archives
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+jekyll-archives:
+  enabled:
+    - tags
+    - categories
+  layout: category-posts
+  permalinks:
+    year: "/:year/"
+    month: "/:year/:month/"
+    day: "/:year/:month/:day/"
+    tag: "/tag/:name/"
+    category: "/category/:name/"
+
+defaults:
+  - scope:
+      path: "assets/**"
+    values:
+      sitemap: false
+
+sass:
+  sass_dir: _sass
+
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+```
+
+
 ## Usage
 
+### Posts
 Create your posts like:
 ```
 docs/_posts/published/yyyy-mm-dd-postname.md

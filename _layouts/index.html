@@ -1,0 +1,24 @@
+---
+layout: default
+title: home
+---
+
+<div class="content">
+  <div class="posts-top">
+    <!-- prettier-ignore -->
+    {% assign selection = site.posts | where_exp:"post", "post.list_post == true" %}
+    {% assign selection = site.posts | where_exp:"post", "post.short != true" %}
+    {% for post in selection limit: 5 %}
+      {% include post-list-item.html %}
+    {% endfor %}
+    <h2 style="font-family: 'Arvo'">
+      <a href="{{site.baseurl}}/posts.html">&#10095;&nbsp; All posts </a>
+    </h2>
+  </div>
+
+  <div class="sidebar-short">
+    <!-- prettier-ignore -->
+    {% include sidebar-short.html %}
+    {% include sidebar-categories.html %}
+  </div>
+</div>

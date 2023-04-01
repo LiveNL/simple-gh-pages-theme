@@ -1,0 +1,60 @@
+theme: simple-gh-pages-theme
+title: My website
+description: The website description
+domain: "username.github.io"
+baseurl: "https://example.com"
+url: "https://example.com"
+gtag: "G-XXXXXXXXX" (your google tag)
+
+about:
+  name: Firstname Lastname
+  site: "https://example.com"
+  avatar: assets/images/image.png
+  email: example@example.com
+  socials:
+    twitter: https://twitter.com/example
+    linkedin: https://www.linkedin.com/in/example/
+    github: https://github.com/example
+    keybase: https://keybase.io/example
+    medium: https://medium.com/@example
+    stack-overflow: https://stackoverflow.com/users/xxxxxx/example
+
+plugins:
+  - jekyll-archives
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+jekyll-archives:
+  enabled:
+    - tags
+    - categories
+  layout: category-posts
+  permalinks:
+    year: "/:year/"
+    month: "/:year/:month/"
+    day: "/:year/:month/:day/"
+    tag: "/tag/:name/"
+    category: "/category/:name/"
+
+defaults:
+  - scope:
+      path: "assets/**"
+    values:
+      sitemap: false
+
+sass:
+  sass_dir: _sass
+
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

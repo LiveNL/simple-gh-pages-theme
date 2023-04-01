@@ -1,10 +1,10 @@
 theme: simple-gh-pages-theme
-title: My website
-description: The website description
+title: "My website"
+description: "The website description"
 domain: "username.github.io"
-baseurl: "https://example.com"
-url: "https://example.com"
-gtag: "G-XXXXXXXXX" (your google tag)
+baseurl: ""
+url: ""
+gtag: "G-XXXXXXXXX" # (your google tag)
 
 about:
   name: Firstname Lastname

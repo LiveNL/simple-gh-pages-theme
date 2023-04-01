@@ -4,11 +4,15 @@
 
 Add this line to your Jekyll site's `Gemfile`:
 
+(Remove possibly already enabled theme gems)
+
 ```ruby
 gem "simple-gh-pages-theme"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
+
+(Remove possibly already enabled themes)
 
 ```yaml
 theme: simple-gh-pages-theme
@@ -27,6 +31,7 @@ Or install it yourself as:
 If you created a new website (`jekyll new sitename`), you can make your pages use the layout by changing:
 
 - **index.markdown**: to `layout: index`
+- **about.markdown**: to `layout: post`, `permalink: /about.html` (to appear in the menu)
 - **posts.markdown**: to `layout: posts` (file might not exist yet)
 - **404.markdown**: to `layout: 404` (file might not exist yet)
 
@@ -65,10 +70,6 @@ short:      false (if true: it shown in 'short' list on home page)
 list_post:  false (if true: it shown in list on home/posts page)
 ```
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
-
 ## Development
 
 To set up your environment to develop this theme, run `bundle install`.
@@ -77,6 +78,10 @@ Your theme is setup just like a normal Jekyll site! To test your theme, run `bun
 
 When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
 To add a custom directory to your theme-gem, please edit the regexp in `simple-gh-pages-theme.gemspec` accordingly.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License
 

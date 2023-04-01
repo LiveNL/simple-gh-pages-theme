@@ -1,10 +1,5 @@
 # simple-gh-pages-theme
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
-
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -30,11 +25,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here. Describe your available layouts, includes, sass and/or assets.
+Create your posts like:
+```
+docs/_posts/published/yyyy-mm-dd-postname.md
+```
+
+Each post can have the following options (with defaults):
+
+```
+layout:     post
+title:      "Title here"
+image:      assets/images/image.png OR https://example.com/image.png
+categories: [category]
+tags:       [tag]
+highlight:  false (if true: it will be used on about page, more here)
+short:      false (if true: it shown in 'short' list on home page)
+list_post:  false (if true: it shown in list on home/posts page)
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## Development
 

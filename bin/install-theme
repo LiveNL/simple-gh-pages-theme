@@ -1,0 +1,8 @@
+# Create 'posts.md'
+File.write('posts.md', <<~HEREDOC
+  ---
+  layout: posts
+  permalink: posts
+  ---
+  HEREDOC
+)

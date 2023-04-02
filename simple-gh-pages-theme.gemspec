@@ -10,8 +10,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/LiveNL/simple-gh-pages-theme"
   spec.license       = "MIT"
 
+  spec.executables   = 'install-theme'
   spec.files         = `git ls-files -z`.split("\x0").select { |f|
-    f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i)
+    f.match(%r!^(assets|bin|_data|_layouts|_includes|_sass|_pages|LICENSE|README|_config\.yml)!i)
   }
 
   spec.add_runtime_dependency 'jekyll-archives'

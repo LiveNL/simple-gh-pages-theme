@@ -16,49 +16,50 @@ in-use: https://jordiwippert.nl
 </tr>
 </table>
 
-## Installation
+## Quick installation
 
-Add this line to your Jekyll site's `Gemfile`:
+1) Add this line to your Jekyll site's `Gemfile`:
 ```ruby
 gem "simple-gh-pages-theme"
 ```
 
-And add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
+2) Add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
 ```yaml
 theme: simple-gh-pages-theme
 ```
-
-And then execute:
+3) And then execute:
 ```shell
 bundle
-OR
-gem install simple-gh-pages-theme
 ```
-### !!! Important. To make the layouts work properly.
+4) When you now run your website locally on `http://localhost:4000`, it should show the theme:
+```shell
+bundle exec jekyll serve
+```
+## !!! Important. To make the layouts work properly, in a fresh jekyll website:
 
 If you created a new website (`jekyll new sitename`), you can make your pages use the layout by changing:
 
 - **index.markdown**: 
-```
+```markdown
 ---
 layout: index
 ---
 ```
 - **about.markdown**:
-```
+```markdown
 ---
 layout: post
 permalink: /about.html 
 ---
 ```
 - **posts.markdown**: (file might not exist yet)
-```
+```markdown
 ---
 layout: posts
 ---
 ```
 - **404.markdown**: (file might not exist yet)
-```
+```markdown
 ---
 layout: 404
 ---
@@ -89,16 +90,6 @@ highlight:  false (if true: it will be used on about page, more here)
 short:      false (if true: it shown in 'short' list on home page)
 list_post:  false (if true: it shown in list on home/posts page)
 ```
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`.
-
-This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.

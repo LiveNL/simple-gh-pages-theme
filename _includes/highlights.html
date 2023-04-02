@@ -1,12 +1,13 @@
 <table>
-  {% assign selection = site.posts | where_exp:"post", "post.highlight == true"
-  %} {% for post in selection %}
+  <!-- prettier-ignore -->
+  {% assign selection = site.posts | where_exp:"post", "post.highlight == true" %}
+  {% for post in selection %}
   <tr>
     <td>
       <h4><span class="date">{{ post.date | date: "%b '%y"}}</span></h4>
     </td>
     <td>
-      {% if post.layout == 'post' %}
+      {% if post.layout == 'post' and post.content.size > 1 %}
       <a href="{{ post.url }}" style="text-decoration: none !important">
         <h4>&nbsp;{{ post.title }}</h4>
       </a>

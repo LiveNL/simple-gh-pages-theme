@@ -7,6 +7,7 @@ title: categories
   <div class="posts-all">
     <!-- prettier-ignore -->
     {% assign selection = page.posts | where_exp:"post", "post.layout == 'post'" %}
+    {% assign selection = selection | where_exp:"post", "post.content.size > 1" %}
     {% for post in selection %}
       {% include post-list-item.html %}
       {% assign nr_of_posts = nr_of_posts | plus:1 %}

@@ -6,7 +6,6 @@ title: home
 <div class="content">
   <div class="posts-top">
     <!-- prettier-ignore -->
-    {% assign selection = site.posts | where_exp:"post", "post.list_post == true" %}
     {% assign selection = site.posts | where_exp:"post", "post.short != true" %}
     {% for post in selection limit: 5 %}
       {% include post-list-item.html %}

@@ -18,51 +18,34 @@ in-use: https://jordiwippert.nl
 
 ## Quick installation
 
-1) Add this line to your Jekyll site's `Gemfile`:
+1. Add this line to your Jekyll site's `Gemfile`:
+
 ```ruby
 gem "simple-gh-pages-theme"
 ```
 
-2) Add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
+2. Add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
+
 ```yaml
 theme: simple-gh-pages-theme
 ```
-3) And then execute:
+
+3. And then execute:
+
 ```shell
 bundle
 ```
-4) When you now run your website locally on `http://localhost:4000`, it should show the theme:
+
+4. Run install script to create 'posts.md'
+
+```shell
+bundle exec install-theme
+```
+
+5. When you now run your website locally on `http://localhost:4000`, it should show the theme:
+
 ```shell
 bundle exec jekyll serve
-```
-## !!! Important. To make the layouts work properly, in a fresh jekyll website:
-
-If you created a new website (`jekyll new sitename`), you can make your pages use the layout by changing:
-
-- **index.markdown**: 
-```markdown
----
-layout: index
----
-```
-- **about.markdown**:
-```markdown
----
-layout: post
-permalink: /about.html 
----
-```
-- **posts.markdown**: (file might not exist yet)
-```markdown
----
-layout: posts
----
-```
-- **404.markdown**: (file might not exist yet)
-```markdown
----
-layout: 404
----
 ```
 
 ## Configuration:
@@ -70,6 +53,7 @@ layout: 404
 See/use example config [here](https://github.com/LiveNL/simple-gh-pages-theme/blob/main/example-config.yml). Copy to `_config.yml`
 
 ## Usage
+
 ### Posts
 
 Create your posts like:
@@ -88,10 +72,10 @@ categories: [category]
 tags:       [tag]
 highlight:  false (if true: it will be used on about page, more here)
 short:      false (if true: it shown in 'short' list on home page)
-list_post:  false (if true: it shown in list on home/posts page)
 ```
 
 ## Contributing
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License

@@ -6,7 +6,7 @@
       <h4><span class="date">{{ post.date | date: "%b '%y"}}</span></h4>
     </td>
     <td>
-      {% if post.list_post == true %}
+      {% if post.layout == 'post' %}
       <a href="{{ post.url }}" style="text-decoration: none !important">
         <h4>&nbsp;{{ post.title }}</h4>
       </a>

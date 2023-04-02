@@ -6,7 +6,7 @@
     {% assign nr_of_posts = 0 %}
     {% assign cat = category | first %}
     {% assign posts = site.categories[cat] %}
-    {% assign selection = posts | where_exp:"post", "post.list_post == true" %}
+    {% assign selection = posts | where_exp:"post", "post.layout == 'post'" %}
     {% for post in selection %}
       {% assign nr_of_posts = nr_of_posts | plus:1 %}
     {% endfor %}
@@ -30,7 +30,7 @@
     {% assign nr_of_posts = 0 %}
     {% assign tag = tag_post | first %}
     {% assign tag_posts = site.tags[tag] %}
-    {% assign tag_posts_selection = tag_posts | where_exp:"post", "post.list_post == true" %}
+    {% assign tag_posts_selection = tag_posts | where_exp:"post", "post.layout == 'post'" %}
     {% for post in tag_posts_selection  %}
       {% assign nr_of_posts = nr_of_posts | plus:1 %}
     {% endfor %}

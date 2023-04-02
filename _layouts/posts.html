@@ -6,7 +6,7 @@ permalink: /posts/
 <div class="content">
   <div class="posts-all">
     <!-- prettier-ignore -->
-    {% assign selection = site.posts | where_exp:"post", "post.list_post == true" %}
+    {% assign selection = site.posts %}
     {% for post in selection  %}
       {% include post-list-item.html %}
       {% assign nr_of_posts = nr_of_posts | plus:1 %}

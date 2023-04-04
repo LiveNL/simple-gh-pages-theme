@@ -2,7 +2,7 @@
 
 <table>
 <tr><td>
-<img width="500" alt="empty default" src="https://user-images.githubusercontent.com/5443727/229302809-750132e5-d461-4ec8-a38a-ccdc62b3b72e.png"> 
+<img width="500" alt="after installing the theme" src="https://user-images.githubusercontent.com/5443727/229901057-23be4caa-0c70-46c1-aa83-d60cbb1220ba.png">
 </td><td>
 <img width="500" alt="jordiwippert.nl" src="https://user-images.githubusercontent.com/5443727/229302812-d481eb40-b0ca-49cd-95d5-c7fef5228b7a.png">
 </td>
@@ -17,6 +17,11 @@ in-use: https://jordiwippert.nl
 </table>
 
 ## Quick installation
+0. To create a new Jekyll site:
+```shell
+jekyll new <sitename>
+cd <sitename>
+```
 
 1. Add this line to your Jekyll site's `Gemfile`:
 
@@ -59,7 +64,7 @@ All configuration options that can be overwritten can be found [here](https://gi
 Create your posts like:
 
 ```
-docs/_posts/published/yyyy-mm-dd-postname.md
+docs/_posts/yyyy-mm-dd-postname.md
 ```
 
 Each post can have the following options (with defaults):
@@ -70,7 +75,7 @@ title:      "Title here"
 image:      assets/images/image.png OR https://example.com/image.png
 categories: [category]
 tags:       [tag]
-highlight:  false (if true: it will be used on about page, more here)
+highlight:  false (if true: it will listed in highlights, which can be shown with: `{% include highlights.html %}`)
 short:      false (if true: it shown in 'short' list on home page)
 ```
 

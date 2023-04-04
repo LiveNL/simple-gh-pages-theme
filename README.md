@@ -50,7 +50,7 @@ bundle exec jekyll serve
 
 ## Configuration:
 
-See/use example config [here](https://github.com/LiveNL/simple-gh-pages-theme/blob/main/example-config.yml). Copy to `_config.yml`
+All configuration options that can be overwritten can be found [here](https://github.com/LiveNL/simple-gh-pages-theme/blob/main/_config.yml).
 
 ## Usage
 

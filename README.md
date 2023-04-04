@@ -81,7 +81,7 @@ short:      false (if true: it shown in 'short' list on home page)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/lvenl/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/LiveNL/simple-gh-pages-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## License
 

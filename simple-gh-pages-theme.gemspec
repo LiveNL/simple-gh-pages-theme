@@ -18,4 +18,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll-archives'
   spec.add_runtime_dependency 'jekyll-redirect-from'
   spec.add_runtime_dependency 'jekyll-sitemap'
+  spec.metadata["github_repo"] = "https://github.com/LiveNL/simple-gh-pages-theme"
+
 end

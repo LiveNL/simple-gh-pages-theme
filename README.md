@@ -17,39 +17,27 @@ in-use: https://jordiwippert.nl
 </table>
 
 ## Quick installation
-0. To create a new Jekyll site:
 ```shell
-jekyll new <sitename>
-cd <sitename>
+# 0. To create a new Jekyll site:
+jekyll new <SITENAME>
+cd <SITENAME>
 ```
-
-1. Add this line to your Jekyll site's `Gemfile`:
-
 ```ruby
+# 1. Add this line to your Jekyll site's `Gemfile`:
 gem "simple-gh-pages-theme"
 ```
-
-2. Add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
-
 ```yaml
+# 2. Add this line to your Jekyll site's `_config.yml`. Remove/disable possibly already enabled themes:
 theme: simple-gh-pages-theme
 ```
-
-3. And then execute:
-
 ```shell
+# 3. Execute on your command line:
 bundle
-```
 
-4. Run install script to create 'posts.md'
-
-```shell
+# 4. Run install script to create 'posts.md'
 bundle exec install-theme
-```
 
-5. When you now run your website locally on `http://localhost:4000`, it should show the theme:
-
-```shell
+# 5. When you now run your website locally on `http://localhost:4000`, it should show the theme:
 bundle exec jekyll serve
 ```
 
@@ -57,26 +45,29 @@ bundle exec jekyll serve
 
 All configuration options that can be overwritten can be found [here](https://github.com/LiveNL/simple-gh-pages-theme/blob/main/_config.yml).
 
-## Usage
+## Github Pages setup
 
-### Posts
+Go to `settings` > `page` in your github-pages-repository.
+1. Select source: `Deploy from a branch`
+2. Select branch: `gh-pages` (create if non-existent)
+3. Select `/docs` as folder
+4. You can now run `script/deploy`
 
-Create your posts like:
-
+## Posts
+Create your posts (files) like:
 ```
 docs/_posts/yyyy-mm-dd-postname.md
 ```
 
-Each post can have the following options (with defaults):
-
-```
-layout:     post
-title:      "Title here"
-image:      assets/images/image.png OR https://example.com/image.png
-categories: [category]
-tags:       [tag]
-highlight:  false (if true: it will listed in highlights, which can be shown with: `{% include highlights.html %}`)
-short:      false (if true: it shown in 'short' list on home page)
+Each post can have the following (metadata) options (with example values):
+```yaml
+layout:     post                    # OR page
+title:      "Title here"            # Used for post-titles
+image:      assets/images/image.png # OR images on urls like: https://example.com/image.png
+categories: [category]              # 'category' can be anything
+tags:       [tag]                   # 'tag' can be everything
+highlight:  false                   # if true: it will listed in highlights, which can be shown with: `{% include highlights.html %}`
+short:      false                   # if true: it shown in 'short' list on home page
 ```
 
 ## Contributing

@@ -1,3 +1,5 @@
+require 'fileutils'
+
 # Create 'posts.md'
 File.write('posts.md', <<~HEREDOC
   ---
@@ -6,3 +8,59 @@ File.write('posts.md', <<~HEREDOC
   ---
   HEREDOC
 )
+
+if !Dir.exist?("docs")
+  Dir.mkdir("docs")
+end
+
+Dir.glob("*").each do |file|
+  next if file == ".gitignore" || file == "docs"
+  if File.directory?(file)
+    FileUtils.mkdir_p("docs/#{file}")
+    FileUtils.cp_r("#{file}/.", "docs/#{file}/")
+    FileUtils.rm_rf(file)
+  else
+    FileUtils.mv(file, "docs/#{file}")
+  end
+end
+
+# Create 'script/deploy'
+if !Dir.exist?("script")
+  Dir.mkdir("script")
+end
+
+File.write('script/deploy', <<~HEREDOC
+  #!/bin/bash
+
+  MAIN_BRANCH="main"
+  DEPLOY_BRANCH="gh-pages"
+
+  # Clear files in deploy_branch
+  git checkout $DEPLOY_BRANCH
+  rm -r docs
+
+  # Get docs-files/folders from main_branch
+  git checkout $MAIN_BRANCH -- docs
+  cd docs || exit
+
+  # Build _site contents
+  bundle exec jekyll build
+  cd .. || exit
+
+  # Delete everything except for the docs/_site folder
+  find docs -mindepth 1 -maxdepth 1 ! -name '_site' -exec rm -r {} +
+
+  # Move all files in docs/_site to the docs folder
+  mv docs/_site/* docs
+
+  # Create commit with last message from main_branch and commit to deploy_branch
+  git add .
+  COMMIT_MESSAGE=$(git log $DEPLOY_BRANCH -1 --pretty="%h %s")
+  git commit -m "$COMMIT_MESSAGE"
+  git push origin $DEPLOY_BRANCH
+  git checkout $MAIN_BRANCH
+  HEREDOC
+)
+
+
+File.chmod(0777, "script/deploy")

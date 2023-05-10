@@ -7,12 +7,12 @@
   {% endfor %}
   <div class="social">
     {% assign socials = site.about.socials %}
-    {% for items in socials %}
-      {% for item in items %}
-        <a target="_blank" href="{{items[item]}}">
-          <i class="fa-brands fa-{{item}} text-muted" aria-hidden="true"></i>
-        </a>
-      {% endfor %}
+    {% for social in socials %}
+      {% assign social_type = social[0] %}
+      {% assign social_url = social[1] %}
+      <a target="_blank" href="{{social_url}}">
+        <i class="fa-brands fa-{{social_type}} text-muted" aria-hidden="true"></i>
+      </a>
     {% endfor %}
     <a href="mailto: {{site.about.email}}">
       <i class="fa fa-envelope text-muted" aria-hidden="true"></i>

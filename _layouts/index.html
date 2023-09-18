@@ -7,7 +7,7 @@ title: home
   <div class="posts-top">
     <!-- prettier-ignore -->
     {% assign selection = site.posts | where_exp:"post", "post.short != true" %}
-    {% for post in selection limit: 5 %}
+    {% for post in selection limit: 6 %}
       {% include post-list-item.html %}
     {% endfor %}
     <h2 style="font-family: 'Arvo'">

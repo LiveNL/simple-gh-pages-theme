@@ -2,7 +2,8 @@
 <div class="line"></div>
 <div>
   <!-- prettier-ignore -->
-  {% for category in site.categories, limit: 10 %}
+  {% capture categories %}
+  {% for category in site.categories %}
     {% assign nr_of_posts = 0 %}
     {% assign cat = category | first %}
     {% assign posts = site.categories[cat] %}
@@ -12,11 +13,18 @@
       {% assign nr_of_posts = nr_of_posts | plus:1 %}
     {% endfor %}
 
+    {{ nr_of_posts | plus: 1000 }}#{{ category[0] }}#{{ nr_of_posts  }}
+  {% endfor %}
+{% endcapture %}
+
+{% assign sorted_categories = categories | split:' ' | sort | reverse %}
+{% for category in sorted_categories limit: 10 %}
+  {% assign category_items = category | split: '#' %}
   <li class="posts-list-item short-post category-list-item">
     <span class="categories">
       <h4>
-        <a class="category" href="/category/{{ cat }}">
-          {{ cat }} ({{ nr_of_posts }})
+        <a class="category" href="/category/{{ category_items[1] }}">
+          {{ category_items[1] }} ({{ category_items[2] }})
         </a>
       </h4>
     </span>
@@ -41,7 +49,8 @@
 
 <div id="extra-categories" style="display: none">
   <!-- prettier-ignore -->
-  {% for category in site.categories offset: 10 %}
+  {% capture categories %}
+  {% for category in site.categories %}
     {% assign nr_of_posts = 0 %}
     {% assign cat = category | first %}
     {% assign posts = site.categories[cat] %}
@@ -51,11 +60,18 @@
       {% assign nr_of_posts = nr_of_posts | plus:1 %}
     {% endfor %}
 
+    {{ nr_of_posts | plus: 1000 }}#{{ category[0] }}#{{ nr_of_posts  }}
+  {% endfor %}
+{% endcapture %}
+
+{% assign sorted_categories = categories | split:' ' | sort | reverse %}
+{% for category in sorted_categories, offset: 10 %}
+  {% assign category_items = category | split: '#' %}
   <li class="posts-list-item short-post category-list-item">
     <span class="categories">
       <h4>
-        <a class="category" href="/category/{{ cat }}">
-          {{ cat }} ({{ nr_of_posts }})
+        <a class="category" href="/category/{{ category_items[1] }}">
+          {{ category_items[1] }} ({{ category_items[2] }})
         </a>
       </h4>
     </span>

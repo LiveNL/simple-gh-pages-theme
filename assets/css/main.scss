@@ -373,3 +373,42 @@ body {
   margin-top: 0;
   font-size: 0.8em;
 }
+
+/* Style for code blocks */
+pre {
+  background-color: #f7f7f7; /* Background color for the code block */
+  border: 1px solid #e1e1e1; /* Border around the code block */
+  padding: 20px; /* Spacing around the code block */
+  border-radius: 5px; /* Rounded corners for the code block */
+  font-family: Monaco, monospace; /* Font for the code */
+  font-size: 12px; /* Font size for the code */
+  line-height: 1.5; /* Line height for the code */
+  overflow-x: auto; /* Add horizontal scroll bar if code overflows */
+}
+
+/* Style for code syntax highlighting */
+pre code {
+  display: block; /* Ensure code is displayed as a block */
+  padding: 0; /* Remove padding for code */
+  margin: 0; /* Remove margin for code */
+}
+
+/* Style for code syntax highlighting colors */
+pre code span {
+  color: #333; /* Default text color for code */
+}
+
+/* Style for specific code syntax elements */
+pre code .comment {
+  color: #888; /* Color for comments */
+}
+
+pre code .keyword {
+  color: #0074d9; /* Color for keywords */
+}
+
+pre code .string {
+  color: #d35400; /* Color for strings */
+}
+
+/* Add more styles for different syntax elements as needed */

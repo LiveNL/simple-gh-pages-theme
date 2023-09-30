@@ -2,10 +2,11 @@
 <div class="line"></div>
 <div id="categories-list">
   <!-- prettier-ignore -->
-  {% include categories.html limit=10 %}
+  {% include categories.html limit=10 items=site.categories item_type="category" %}
 </div>
 <div id="extra-categories" style="display: none">
-  {% include categories.html offset=10 %}
+  {% include categories.html offset=10 items=site.categories
+  item_type="category" %}
 </div>
 
 <script>

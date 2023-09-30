@@ -1,27 +1,30 @@
 <!-- prettier-ignore -->
-{% capture categories %}
-{% for category in site.categories %}
+{% capture items %}
+{% for item in include.items %}
   {% assign nr_of_posts = 0 %}
-  {% assign cat = category | first %}
-  {% assign posts = site.categories[cat] %}
+  {% assign it = item | first %}
+  {% assign posts = include.items[it] %}
   {% assign selection = posts | where_exp:"post", "post.layout == 'post'" %}
   {% assign selection = selection | where_exp:"post", "post.content.size > 1" %}
   {% for post in selection %}
     {% assign nr_of_posts = nr_of_posts | plus:1 %}
   {% endfor %}
 
-  {{ nr_of_posts | plus: 1000 }}#{{ category[0] }}#{{ nr_of_posts  }}
+  {{ nr_of_posts | plus: 1000 }}#{{ item[0] }}#{{ nr_of_posts  }}
 {% endfor %}
 {% endcapture %}
 
-{% assign sorted_categories = categories | split:' ' | sort | reverse %}
-{% for category in sorted_categories limit: include.limit, offset: include.offset %}
-  {% assign category_items = category | split: '#' %}
-<li class="posts-list-item short-post category-list-item">
-  <span class="categories">
+{% assign sorted_items = items | split:' ' | sort | reverse %}
+{% for item in sorted_items limit: include.limit, offset: include.offset %}
+  {% assign item_items = item | split: '#' %}
+<li class="posts-list-item short-post {{include.item_type}}-list-item">
+  <span class="{{include.item_type}}s">
     <h4>
-      <a class="category" href="/category/{{ category_items[1] }}">
-        {{ category_items[1] }} ({{ category_items[2] }})
+      <a
+        class="{{include.item_type}}"
+        href="/{{include.item_type}}/{{ item_items[1] }}"
+      >
+        {{ item_items[1] }} ({{ item_items[2] }})
       </a>
     </h4>
   </span>

@@ -1,4 +1,18 @@
 <h2 class="title no-decoration">Categories</h2>
+<button
+  id="show-more-categories"
+  onclick="showMoreCategories()"
+  style="
+    border-width: 0;
+    padding: 0;
+    background: white;
+    margin-top: 0;
+    font-size: 0.8em;
+  "
+>
+  more..
+</button>
+
 <div class="line"></div>
 <div>
   <!-- prettier-ignore -->
@@ -31,22 +45,6 @@
   </li>
   {% endfor %}
 </div>
-
-<button
-  id="show-more-categories"
-  onclick="showMoreCategories()"
-  style="
-    border-width: 0;
-    padding: 0;
-    background: white;
-    margin-top: 0;
-    font-size: 0.8em;
-    color: #272b32;
-  "
->
-  more..
-</button>
-
 <div id="extra-categories" style="display: none">
   <!-- prettier-ignore -->
   {% capture categories %}
@@ -88,9 +86,11 @@
 
     if (extraCategories.style.display === "none") {
       extraCategories.style.display = "block";
+      showMoreButtonCategories.style.color = "#fc036f";
       showMoreButtonCategories.innerText = "less..";
     } else {
       extraCategories.style.display = "none";
+      showMoreButtonCategories.style.color = "#272b32";
       showMoreButtonCategories.innerText = "more..";
     }
   }

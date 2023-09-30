@@ -17,10 +17,9 @@ title: post
         style="text-decoration: none !important"
         href="/tag/{{ tag }}"
       >
-        {{ tag }}</a
-      >
+        {{ tag }}{% if page.tags.size > 1 %}, &nbsp;{% endif %}
+      </a>
       <!-- prettier-ignore -->
-      {% if page.tags.size > 1 %}, &nbsp;{% endif %}
       {% endfor %}
       {% endif %}
       {% assign date = page.date | date: "%d %b %Y" %}

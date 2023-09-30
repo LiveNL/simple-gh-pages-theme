@@ -9,28 +9,10 @@
   item_type="category" %}
 </div>
 
-<script>
-  function toggleCategories() {
-    var extraCategories = document.getElementById("extra-categories");
-    var showMoreButtonCategories = document.getElementById(
-      "show-more-categories"
-    );
-
-    if (extraCategories.style.display === "none") {
-      extraCategories.style.display = "block";
-      showMoreButtonCategories.style.color = "#fc036f";
-      showMoreButtonCategories.innerText = "show less";
-    } else {
-      extraCategories.style.display = "none";
-      showMoreButtonCategories.style.color = "#272b32";
-      showMoreButtonCategories.innerText = "show more";
-    }
-  }
-</script>
 <button
   id="show-more-categories"
   class="show-more"
-  onclick="toggleCategories()"
+  onclick="toggleItems('categories')"
 >
   show more
 </button>
@@ -45,22 +27,23 @@
   {% include categories.html offset=10 items=site.tags item_type="tag" %}
 </div>
 
-<script>
-  function toggleTags() {
-    var extraCategories = document.getElementById("extra-tags");
-    var showMoreButtonCategories = document.getElementById("show-more-tags");
+<button id="show-more-tags" class="show-more" onclick="toggleItems('tags')">
+  show more
+</button>
 
-    if (extraCategories.style.display === "none") {
-      extraCategories.style.display = "block";
-      showMoreButtonCategories.style.color = "#fc036f";
-      showMoreButtonCategories.innerText = "show less";
+<script>
+  function toggleItems(itemType) {
+    var extraItems = document.getElementById("extra-" + itemType);
+    var showMoreButton = document.getElementById("show-more-" + itemType);
+
+    if (extraItems.style.display === "none") {
+      extraItems.style.display = "block";
+      showMoreButton.style.color = "#fc036f";
+      showMoreButton.innerText = "show less";
     } else {
-      extraCategories.style.display = "none";
-      showMoreButtonCategories.style.color = "#272b32";
-      showMoreButtonCategories.innerText = "show more";
+      extraItems.style.display = "none";
+      showMoreButton.style.color = "#272b32";
+      showMoreButton.innerText = "show more";
     }
   }
 </script>
-<button id="show-more-tags" class="show-more" onclick="toggleTags()">
-  show more
-</button>

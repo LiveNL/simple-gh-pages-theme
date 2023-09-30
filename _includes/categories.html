@@ -17,13 +17,10 @@
 {% assign sorted_items = items | split:' ' | sort | reverse %}
 {% for item in sorted_items limit: include.limit, offset: include.offset %}
   {% assign item_items = item | split: '#' %}
-<li class="posts-list-item short-post {{include.item_type}}-list-item">
-  <span class="{{include.item_type}}s">
+<li class="posts-list-item short-post category-list-item">
+  <span class="categories">
     <h4>
-      <a
-        class="{{include.item_type}}"
-        href="/{{include.item_type}}/{{ item_items[1] }}"
-      >
+      <a class="category" href="/{{include.item_type}}/{{ item_items[1] }}">
         {{ item_items[1] }} ({{ item_items[2] }})
       </a>
     </h4>

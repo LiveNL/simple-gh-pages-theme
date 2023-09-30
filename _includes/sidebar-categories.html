@@ -43,80 +43,40 @@
 
 <h2 class="title no-decoration" style="margin-top: 20px">Tags</h2>
 <div class="line"></div>
-<div>
+<div id="categories-list">
   <!-- prettier-ignore -->
-  {% for tag_post in site.tags limit: 10 %}
-    {% assign nr_of_posts = 0 %}
-    {% assign tag = tag_post | first %}
-    {% assign tag_posts = site.tags[tag] %}
-    {% assign tag_posts_selection = tag_posts | where_exp:"post", "post.layout == 'post'" %}
-    {% assign tag_posts_selection = tag_posts_selection | where_exp:"post", "post.content.size > 1" %}
-    {% for post in tag_posts_selection  %}
-      {% assign nr_of_posts = nr_of_posts | plus:1 %}
-    {% endfor %}
-
-  <li class="posts-list-item short-post category-list-item">
-    <span class="categories">
-      <h4>
-        <a class="category" href="/tag/{{ tag }}">
-          {{ tag }} ({{ nr_of_posts }})
-        </a>
-      </h4>
-    </span>
-  </li>
-  {% endfor %}
+  {% include categories.html limit=10 items=site.tags item_type="tag" %}
+</div>
+<div id="extra-tags" style="display: none">
+  {% include categories.html offset=10 items=site.tags item_type="tag" %}
 </div>
 
+<script>
+  function toggleTags() {
+    var extraCategories = document.getElementById("extra-tags");
+    var showMoreButtonCategories = document.getElementById("show-more-tags");
+
+    if (extraCategories.style.display === "none") {
+      extraCategories.style.display = "block";
+      showMoreButtonCategories.style.color = "#fc036f";
+      showMoreButtonCategories.innerText = "show less";
+    } else {
+      extraCategories.style.display = "none";
+      showMoreButtonCategories.style.color = "#272b32";
+      showMoreButtonCategories.innerText = "show more";
+    }
+  }
+</script>
 <button
   id="show-more-tags"
-  onclick="showMoreTags()"
+  onclick="toggleTags()"
   style="
     border-width: 0;
     padding: 0;
     background: white;
     margin-top: 0;
     font-size: 0.8em;
-    color: #272b32;
   "
 >
-  more..
+  show more
 </button>
-
-<div id="extra-tags" style="display: none">
-  <!-- prettier-ignore -->
-  {% for tag_post in site.tags offset: 10 %}
-    {% assign nr_of_posts = 0 %}
-    {% assign tag = tag_post | first %}
-    {% assign tag_posts = site.tags[tag] %}
-    {% assign tag_posts_selection = tag_posts | where_exp:"post", "post.layout == 'post'" %}
-    {% assign tag_posts_selection = tag_posts_selection | where_exp:"post", "post.content.size > 1" %}
-    {% for post in tag_posts_selection  %}
-      {% assign nr_of_posts = nr_of_posts | plus:1 %}
-    {% endfor %}
-
-  <li class="posts-list-item short-post category-list-item">
-    <span class="categories">
-      <h4>
-        <a class="category" href="/tag/{{ tag }}">
-          {{ tag }} ({{ nr_of_posts }})
-        </a>
-      </h4>
-    </span>
-  </li>
-  {% endfor %}
-</div>
-
-<script>
-  function showMoreTags() {
-    var extraTags = document.getElementById("extra-tags");
-    var showMoreButton = document.getElementById("show-more-tags");
-
-    if (extraTags.style.display === "none") {
-      extraTags.style.display = "block";
-      showMoreButton.innerText = "less..";
-    } else {
-      extraTags.style.display = "none";
-      showMoreButton.innerText = "more..";
-    }
-  }
-</script>

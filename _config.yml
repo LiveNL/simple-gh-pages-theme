@@ -12,12 +12,13 @@ about:
   avatar: assets/images/image.png
   email: example@example.com
   socials:
-    twitter: https://twitter.com/example
-    linkedin: https://www.linkedin.com/in/example/
-    github: https://github.com/example
-    keybase: https://keybase.io/example
-    medium: https://medium.com/@example
-    stack-overflow: https://stackoverflow.com/users/xxxxxx/example
+    # example. Enable what you like
+    # github: https://github.com/example
+    # x-twitter: https://x.com/example
+    # linkedin: https://www.linkedin.com/in/example/
+    # keybase: https://keybase.io/example
+    # medium: https://medium.com/@example
+    # stack-overflow: https://stackoverflow.com/users/xxxxxx/example
 
 plugins:
   - jekyll-archives

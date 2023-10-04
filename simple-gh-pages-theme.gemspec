@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "simple-gh-pages-theme"
-  spec.version       = "0.1.9"
+  spec.version       = "0.1.10"
   spec.authors       = ["LiveNL"]
   spec.email         = ["simple-gh-pages-theme@jordiwippert.nl"]
 
